@@ -7,6 +7,12 @@ const extractSass = new ExtractTextPlugin({
   disable: process.env.NODE_ENV === 'development',
 });
 
+const extractLess = new ExtractTextPlugin({
+  filename: 'style.css',
+  disable: process.env.NODE_ENV === 'development',
+});
+
+
 module.exports = {
   entry: ['./src'],
   devtool: 'inline-source-map',
@@ -21,6 +27,18 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.less$/,
+        use: extractLess.extract({
+          use: [{
+            loader: 'css-loader',
+          }, {
+            loader: 'less-loader',
+          }],
+                      // use style-loader in development
+          fallback: 'style-loader',
+        }),
+      },
       {
         test: /(\.scss)$/,
         use: extractSass.extract({
@@ -51,6 +69,6 @@ module.exports = {
     ],
   },
   plugins: [
-    extractSass,
+    extractSass, extractLess,
   ],
 };

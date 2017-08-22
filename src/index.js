@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './style.scss';
+import './style.less';
+import CardContainer from './components/IssueView';
+import Filters from './components/Filters';
 
-const App = () => {
-  return <div className="test">All the React are belong to us!</div>;
-};
 
-ReactDOM.render(<App />, document.getElementById('main'));
+const App = (
+  <div>
+    <Filters />
+    <CardContainer />
+  </div>
+);
+
+ReactDOM.render(App, document.getElementById('main'));
