@@ -82,11 +82,11 @@ class Filters extends Component {
               </Collapse>
             </div>
 
-            <div className="col-md-7 no-padding-left">
+            <div className="col-md-7 ">
               <Collapse isOpened={this.state.collapsed} springConfig={{ stiffness: 100, damping: 20 }}>
 
                 <div className="row-fluid ">
-                  <div className="col-md-3  no-padding-left" style={{ display: 'inline-block' }}>
+                  <div className="col-md-3" style={{ display: 'inline-block' }}>
                     <small className="uppercase">Time Period</small>
                     <i className="fa fa-info-circle " style={{ paddingLeft: 5, marginTop: 8, marginRight: 2 }} title="What does the time period filter mean?" />
                     <SingleSelect placeholder="Click here" options={statuses} />

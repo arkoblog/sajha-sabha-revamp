@@ -4,15 +4,15 @@
 // ------------------------------
 
 // common
-@select-primary-color:              black;
+@select-primary-color:              #09c;
 
 // control options
-@select-input-bg:                   #fff;
+@select-input-bg:                   #f2f2f2;
 @select-input-bg-disabled:          #f9f9f9;
-@select-input-border-color:         #000;
-@select-input-border-radius:        2px;
+@select-input-border-color:         #f2f2f2;
+@select-input-border-radius:        6px;
 @select-input-border-focus:         @select-primary-color;
-@select-input-box-shadow-focus:     inset 0 1px 2px rgba(0, 0, 0, 0.1), 0 0 5px -1px fade(@select-input-border-focus, 50%);
+@select-input-box-shadow-focus:     inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 0 5px -1px fade(@select-input-border-focus, 50%);
 @select-input-border-width:         1px;
 @select-input-height:               36px;
 @select-input-internal-height:      (@select-input-height - (@select-input-border-width * 2));
@@ -43,12 +43,12 @@
 
 // clear "x" button
 @select-clear-size:                 floor((@select-input-height / 2));
-@select-clear-color:                #000;
+@select-clear-color:                #888;
 @select-clear-hover-color:          #D0021B; // red
 @select-clear-width:                (@select-input-internal-height / 2);
 
 // arrow indicator
-@select-arrow-color:                #000;
+@select-arrow-color:                #888;
 @select-arrow-color-hover:          #666;
 @select-arrow-width:                5px;
 
@@ -85,7 +85,7 @@
 
 .Select {
   text-transform: uppercase;
-  font-size: 0.7em;
+  font-size: 0.65em;
 }
 
 .Select-placeholder {

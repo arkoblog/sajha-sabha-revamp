@@ -8,7 +8,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const extractLess = new ExtractTextPlugin({
-  filename: 'style.css',
+  filename: 'style-less.css',
   disable: process.env.NODE_ENV === 'development',
 });
 
