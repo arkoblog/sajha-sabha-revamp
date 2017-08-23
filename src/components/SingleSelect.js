@@ -21,7 +21,7 @@ class SingleSelect extends Component {
     return (
       <Select
         name="form-field-name"
-        className="multi-select"
+        className="on-top"
         simpleValue
         clearable={false}
         value={this.state.value}

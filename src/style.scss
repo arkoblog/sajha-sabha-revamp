@@ -1,6 +1,7 @@
 
 body {
 	// background: #eee ;
+	overflow: hidden;
 	font-family: 'Ubuntu', sans-serif;
 }
 
@@ -8,6 +9,24 @@ body {
 
 .no-margin-top {
 	margin-top:0;
+}
+
+.toggle-text {
+	margin-left:1vh;
+	font-size:15px;
+}
+
+.border-bottom {
+	border-bottom: 1px solid #ccc;
+}
+
+
+.border-right {
+	border-right: 1px solid #ccc;
+}
+
+.border-left {
+	border-left: 1px solid #ccc;
 }
 
 header {
@@ -23,9 +42,16 @@ header {
 
 }
 
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .fa {
 	color: #ccc;
 	font-size: 0.8em;
+
 }
 
 .fa:hover {

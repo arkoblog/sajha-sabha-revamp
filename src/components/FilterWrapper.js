@@ -5,6 +5,7 @@ import SingleSelect from './SingleSelect';
 
 
 import '../filter-wrapper.scss';
+import '../hamburgers.scss';
 
 const options = [
   { value: 'Health', label: 'Health' },
@@ -23,15 +24,35 @@ const statuses = [
 ];
   // /* eslint-disable*/
 class FilterWrapper extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.onToggleClick = this.onToggleClick.bind(this);
+
+    this.state = {
+      isExpanded: true,
+      toggleClass: 'hamburger hamburger--collapse is-active',
+    };
+  }
+
   componentDidMount() {
     $('#togglebutton').click(() => {
-      if ($(window).width() > 500) { // your chosen mobile res
+      if ($(window).width() > 100) { // your chosen mobile res
         $('.text').toggle(300);
       } else {
         $('.menu').animate({
           width: 'toggle',
         }, 350);
       }
+    });
+  }
+
+  onToggleClick() {
+    const expanded = this.state.isExpanded;
+
+    this.setState({
+      isExpanded: !expanded,
     });
   }
 
@@ -48,16 +69,16 @@ class FilterWrapper extends Component {
                   <strong>FILTERS</strong>
                 </div>
               </div>
-              <div className="row-fluid ">
-                <div className="col-md-12 no-margin-top " style={{ display: 'inline-block' }}>
+              <div className="row-fluid  ">
+                <div className="col-md-12  no-margin-top  ">
                   <small className="uppercase">Category</small>
                   <i className="fa fa-info-circle " style={{ paddingLeft: 5, marginTop: 8, marginRight: 2 }} title="What does the category filter mean?" />
-                  <MultiSelect placeholder="No category selected"options={options} />
+                  <MultiSelect className="on-top" placeholder="No category selected"options={options} />
                 </div>
-                <div className="col-md-12 " style={{ display: 'inline-block' }}>
+                <div className="col-md-12  " style={{ display: 'inline-block' }}>
                   <small className="uppercase">Status</small>
                   <i className="fa fa-info-circle " style={{ paddingLeft: 5, marginTop: 8, marginRight: 2 }} title="What does the Status filter mean?" />
-                  <MultiSelect placeholder="Click here" options={statuses} />
+                  <MultiSelect className="on-top" placeholder="Click here" options={statuses} />
                 </div>
               </div>
             </div>
@@ -95,12 +116,25 @@ class FilterWrapper extends Component {
 
         </div>
         <div className="content">
-          <button id="togglebutton">&#9776;</button>
-          {this.props.children}
+          <div className="row">
+            <div className="col-md-12 border-bottom">
+              <button id="togglebutton" onClick={this.onToggleClick} className={this.state.isExpanded ? 'hamburger hamburger--spin is-active' : 'hamburger hamburger--spin'} type="button">
+                <span className="hamburger-box">
+                  <span className="hamburger-inner" />
+                </span>
+                {this.state.isExpanded && <span className="toggle-text">HIDE FILTERS</span>}
+                {!this.state.isExpanded && <span className="toggle-text">SHOW FILTERS</span>}
+              </button>
+            </div>
+          </div>
+          <div className={this.state.isExpanded ? 'scroll-y low-opacity' : 'scroll-y full-opacity'}>
+            {this.props.children}
+          </div>
         </div>
       </div>
     );
   }
 }
 
+// <button id="togglebutton">&#9776;</button>
 export default FilterWrapper;

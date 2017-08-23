@@ -1,11 +1,21 @@
-.wrapper { width: 100% }
+.wrapper { width: 100%;
+  height:100vh;
+  overflow-x:hidden;
+  overflow-y:hidden;
+}
 .menu {
       padding-top:2vh;
-      background: #fff;
+      background: #f2f2f2;
       float: left;
       display: block;
       height: 100vh;
       max-width:45vh;
+}
+
+.scroll-y {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height:87vh;
 }
 
 .icon { max-width: 1em }
@@ -28,12 +38,56 @@
       margin: 0;
 }
 
-.content { display: block; }
+.on-top {
+  z-index: 2000;
+}
+
+.on-top-2 {
+  z-index: 3000;
+}
+.content {
+   display: block;
+}
 
 button { margin: 1em; }
 
+.low-opacity {
+  opacity: 1
+}
+
+.full-opacity {
+  opacity:1
+}
+
 @media only screen and (max-width: 500px) {
-  .text {
-      display: none;
+  // .text {
+  //     display: none;
+  // }
+  .low-opacity {
+    opacity: 0.1
   }
+
+
+  .wrapper {
+    // height:100vh;
+    // width: 100%;
+    overflow:hidden;
+  }
+
+    .menu {
+      overflow-y: scroll;
+      max-width:65vw;
+      // min-width:100vw;
+      height:100%
+    }
+
+    .scroll-y {
+      overflow: auto;
+      height:87vh;
+      // display:none;
+    }
+
+
+
+
 }

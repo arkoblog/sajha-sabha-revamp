@@ -6,12 +6,21 @@ class MultiSelect extends Component {
   constructor(props) {
     super(props);
     this.handleSelectChange = this.handleSelectChange.bind(this);
+    this.handleFocus = this.handleFocus.bind(this);
 
     console.log('Values');
 
     this.state = {
+      focus: false,
       value: _.map(this.props.options, 'value'),
     };
+  }
+
+  handleFocus(e) {
+    const isFocused = this.state.focus;
+    this.setState({
+      focus: !isFocused,
+    });
   }
 
   handleSelectChange(value) {
@@ -23,8 +32,9 @@ class MultiSelect extends Component {
     return (
       <Select
         name="form-field-name"
-        className="multi-select"
+        className={this.state.focus ? 'on-top-2' : 'on-top'}
         simpleValue
+        onFocus={this.handleFocus}
         value={this.state.value}
         placeholder={this.props.placeholder}
         multi

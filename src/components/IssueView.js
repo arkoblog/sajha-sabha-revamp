@@ -197,7 +197,7 @@ class CardComponent extends Component {
   render() {
     const issue = this.props.issue;
     return (
-      <div className="col-sm-4">
+      <div className="col-sm-12 col-md-4 col-xs-12">
 
         <div className="card">
           <div className="relative ">
@@ -233,9 +233,9 @@ class CardComponent extends Component {
 
 const CardContainer = () => {
   return (
-    <div className="container-fluid margin-top-small">
+    <div className="container-fluid ">
 
-      <div className="row">
+      <div className="row  ">
         <div className="card-deck">
           {
             issues.map((issue) => {
